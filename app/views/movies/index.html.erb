@@ -9,17 +9,21 @@
     <%= submit_tag "Search" %>
 <% end %>
 
-<ul>
-    <% @movies.each do |movie| %>
-    <li>
-        <h2><a href="<%= movie_path(movie) %>"><%= movie.title %></a></h2>
-        <a href="<%= edit_movie_path(movie) %>">Edit</a>
-        <p>
-            <%= movie.description %>
-        </p>
-        <p>
-            <%= movie.year_released %>
-        </p>
-    </li>
-    <% end %>
-</ul>
+<div class="container">
+    <ul class="thumbnails">
+        <% @movies.each do |movie| %>
+        <li class="span4">
+            <div class="movie_thumbnail">
+                <h2><a href="<%= movie_path(movie) %>"><%= movie.title %></a></h2>
+                <p>
+                    <%= movie.description %>
+                </p>
+                <p>
+                    <%= movie.year_released %>
+                </p>
+                <a href="<%= edit_movie_path(movie) %>"><button class="btn btn-small" type="button">Edit</button></a>
+            </div>
+        </li>
+        <% end %>
+    </ul>
+</div>
